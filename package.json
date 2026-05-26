@@ -1,0 +1,66 @@
+{
+  "name": "@sdd-method/cli-core",
+  "version": "0.1.0",
+  "description": "Upstream shared TypeScript/Node core for SDD adopter partner-cli and platform-cli binaries. Implements the method-defined surfaces (archetypes, stability, pins, MCP envelope/lifecycle/sdd-client, workspace/repo-kind discovery, manifest + archetype-metadata validation) that recur across every SDD adopter's code-CLI pair per ADR 0118 + ADR 0120 + ADR 0127. Scope locked in ADR 0152.",
+  "keywords": [
+    "sdd-method",
+    "sdd",
+    "spec-driven-development",
+    "cli-core",
+    "partner-cli",
+    "platform-cli"
+  ],
+  "homepage": "https://github.com/tomfosteruk/sdd-cli-core#readme",
+  "bugs": {
+    "url": "https://github.com/tomfosteruk/sdd-cli-core/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomfosteruk/sdd-cli-core.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Tom Foster",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./archetypes": "./dist/archetypes/index.js",
+    "./stability": "./dist/stability/index.js",
+    "./pins": "./dist/pins/index.js",
+    "./pins/contracts": "./dist/pins/contracts.js",
+    "./pins/artifacts": "./dist/pins/artifacts.js",
+    "./mcp": "./dist/mcp/index.js",
+    "./validate": "./dist/validate/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LIBRARY_SPEC.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "yaml": "^2.5.0",
+    "zod": "^4.3.6"
+  }
+}
