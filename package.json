@@ -1,6 +1,6 @@
 {
   "name": "@sdd-method/cli-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Upstream shared TypeScript/Node core for SDD adopter partner-cli and platform-cli binaries. Implements the method-defined surfaces (archetypes, stability, pins, MCP envelope/lifecycle/sdd-client, workspace/repo-kind discovery, manifest + archetype-metadata validation) that recur across every SDD adopter's code-CLI pair per ADR 0118 + ADR 0120 + ADR 0127. Scope locked in ADR 0152.",
   "keywords": [
     "sdd-method",

@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   REPO_KIND_FILE,
+  LEGACY_REPO_KIND_FILE,
   isRepoKind,
   profileFromRepoKind,
   readRepoKind,
@@ -14,6 +15,10 @@ import {
 describe("root exports", () => {
   it("exposes the repo-kind marker filename", () => {
     expect(REPO_KIND_FILE).toBe(".sdd-repo-kind");
+  });
+
+  it("exposes the legacy pre-rebrand marker filename", () => {
+    expect(LEGACY_REPO_KIND_FILE).toBe(".iteraitive-repo-kind");
   });
 
   it("classifies the three profile values", () => {

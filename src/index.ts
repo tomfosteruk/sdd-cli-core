@@ -1,5 +1,6 @@
 export {
   REPO_KIND_FILE,
+  LEGACY_REPO_KIND_FILE,
   isRepoKind,
   profileFromRepoKind,
   readRepoKind,

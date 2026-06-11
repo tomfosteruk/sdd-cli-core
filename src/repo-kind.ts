@@ -17,6 +17,16 @@ export type RepoKind =
 
 export const REPO_KIND_FILE = ".sdd-repo-kind";
 
+/**
+ * Legacy pre-rebrand marker filename (the `iteraitive` → `sdd` rebrand).
+ * Exported for adopters that detect or migrate legacy repos that still carry
+ * the old marker. Note: {@link readRepoKind} below reads only the canonical
+ * {@link REPO_KIND_FILE}; honouring the legacy marker as a read fallback is a
+ * separate, deliberate behavioural choice left to the consumer (or a future
+ * library enhancement), not implied by this constant's presence.
+ */
+export const LEGACY_REPO_KIND_FILE = ".iteraitive-repo-kind";
+
 const PROFILE_BY_REPO_KIND: Readonly<Record<RepoKind, Profile>> = {
   "platform-product": "platform",
   "application-product": "application",

@@ -27,12 +27,16 @@ Eight sub-module export groups, per ADR 0152 §4.3:
 
 | Sub-module export | Purpose | Anchored in |
 |---|---|---|
-| **root** (`@sdd-method/cli-core`) | Workspace + repo-kind discovery — `findSddRoot`, `discoverSddRepos`, `readRepoKind`, `profileFromRepoKind`, `isRepoKind`, `REPO_KIND_FILE`, types `Profile`, `RepoKind`, `DiscoveredRepo` | ADR 0045 sibling-SDD layout, ADR 0118 profile framework |
+| **root** (`@sdd-method/cli-core`) | Workspace + repo-kind discovery — `findSddRoot`, `discoverSddRepos`, `readRepoKind`, `profileFromRepoKind`, `isRepoKind`, `REPO_KIND_FILE`, `LEGACY_REPO_KIND_FILE` (added v0.1.1), types `Profile`, `RepoKind`, `DiscoveredRepo` | ADR 0045 sibling-SDD layout, ADR 0118 profile framework |
 | `./archetypes` | Archetype registry + render primitives + repo-config writer — `loadRegistry`, `filterByProfile`, `findArchetype`, `renderArchetype`, `writeRepoConfigEntry`, types `ArchetypeRegistry`, `ArchetypeDeclaration`, `RenderOptions`, `RenderOutcome`, `RenderVars`, `WriteRepoConfigInputs`, `WriteRepoConfigResult` | ADR 0118 §6 archetype-output compliance |
 | `./stability` | Stability-class surfacing shape — `checkStabilityClass`, types `StabilityContext`, `StabilityCheckResult` | ADR 0118 §4.5, ADR 0127 verb stability semantics |
 | `./pins` (and split sub-paths) | Pin-verb delegation shims — `runContractsVerb`, `runArtifactsVerb`, types `ContractsVerbOptions`, `ContractsVerbResult`, `ArtifactsVerbOptions`, `ArtifactsVerbResult` | ADR 0110 cross-SDD contract pins, ADR 0113 runtime artefact pins |
 | `./mcp` | MCP envelope + lifecycle + sdd-mcp composition client — `jsonContent`, `errorContent`, `dedupeSources`, `getSddClient`, `shutdownSddClient`, `parseSddToolResult`, `runMcpServer`, `McpEnvelopeError`, types `McpErrorEnvelope`, `CompositionResult`, `SddClientOptions`, `ParsedSddToolResult`, `RunMcpServerOptions` | ADR 0130 Adopter MCP Composition Pattern |
 | `./validate` | Manifest + archetype-metadata validators — `checkManifest`, `checkArchetypeMetadata`, types `ManifestCheckIssue`, `ManifestCheckResult`, `ManifestVocabulary`, `ArchetypeMetadataCheckIssue`, `ArchetypeMetadataCheckResult`, `ArchetypeMetadataCheckOptions` | ADR 0143 – ADR 0147 canonical manifest schemas |
+
+### v0.1.1 — additive
+
+- **root:** export `LEGACY_REPO_KIND_FILE` (`.iteraitive-repo-kind`), the pre-rebrand marker filename, for adopters that detect or migrate legacy repos. Additive (new symbol on the existing root sub-module; no behavioural change — `readRepoKind` still reads only the canonical `REPO_KIND_FILE`). Settles the migration-map gap for the first-adopter (`contextua-clis`) `platform-cli` swap.
 
 ## Out of scope for v0.1.0
 
